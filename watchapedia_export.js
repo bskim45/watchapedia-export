@@ -94,10 +94,12 @@
             "max-width:1320px;width:100%;height:100%;margin:0 auto;display:flex; align-items: center;padding:0 32px;",
         }),
         n = document.styleSheets[0];
-      n.insertRule(
-        "@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(359deg);} }",
-        n.cssRules.length
-      );
+      try {
+        n.insertRule(
+          "@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(359deg);} }",
+          n.cssRules.length
+        );
+      } catch (e_) {}
       const a = Object.assign(document.createElement("div"), {
           style:
             "width: 26px; height: 26px; border: 3px solid rgb(229, 229, 229); border-radius: 100%; position: relative; margin-right:24px;",
