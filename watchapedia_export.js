@@ -139,6 +139,7 @@
         },
         s = await i("movies", r),
         o = await i("tv_seasons", r);
+      const bom = "\uFEFF";
       let c = s.map((e) => `"${e.join('","')}"`).join("\n");
       (c += "\n"),
         (c += o.map((e) => `"${e.join('","')}"`).join("\n")),
@@ -148,7 +149,7 @@
           (a.href = URL.createObjectURL(n)), (a.download = e), a.click();
         })(
           `${e}-watcha.csv`,
-          `ID,URL,Title,Type,Year,Directors,WatchedAt,Rating,Review,Spoiler\n${c}`
+          `${bom}ID,URL,Title,Type,Year,Directors,WatchedAt,Rating,Review,Spoiler\n${c}`
         );
     } catch (e) {}
     a();
